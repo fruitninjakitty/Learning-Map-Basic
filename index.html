@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discrete Mathematics Learning Map</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="learning-map-container">
+        <!-- Header Navigation -->
+        <header class="map-header">
+            <div class="header-content">
+                <h1 class="map-title">Discrete Mathematics Learning Map</h1>
+                <div class="navigation-controls">
+                    <select id="navigationMode" class="form-control">
+                        <option value="free_exploration">Free Exploration</option>
+                        <option value="guided_tour">Guided Tour</option>
+                        <option value="search_based">Search Mode</option>
+                    </select>
+                    <input type="text" id="searchInput" class="form-control" placeholder="Search concepts...">
+                    <button id="searchBtn" class="btn btn--primary">Search</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar with Progress and Controls -->
+        <aside class="map-sidebar">
+            <div class="progress-panel">
+                <h3>Learning Progress</h3>
+                <div class="progress-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="completedCount">1</span>
+                        <span class="stat-label">Completed</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="currentCount">1</span>
+                        <span class="stat-label">Current</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="availableCount">3</span>
+                        <span class="stat-label">Available</span>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <!-- Breadcrumb Trail -->
+            <div class="breadcrumb-panel">
+                <h4>Learning Path</h4>
+                <nav class="breadcrumb" id="breadcrumbTrail">
+                    <span class="breadcrumb-item">Overview</span>
+                </nav>
+            </div>
+
+            <!-- Territory Legend -->
+            <div class="territory-legend">
+                <h4>Territories</h4>
+                <div class="legend-items" id="territoryLegend">
+                    <!-- Legend items will be populated by JavaScript -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Map Area -->
+        <main class="map-main">
+            <!-- Map Controls -->
+            <div class="map-controls">
+                <button id="zoomIn" class="btn btn--secondary">+</button>
+                <button id="zoomOut" class="btn btn--secondary">-</button>
+                <button id="resetView" class="btn btn--secondary">⌂</button>
+            </div>
+
+            <!-- You Are Here Indicator -->
+            <div class="position-indicator" id="positionIndicator">
+                <span class="indicator-dot"></span>
+                <span class="indicator-text">You are here</span>
+            </div>
+
+            <!-- Mini Map -->
+            <div class="mini-map" id="miniMap">
+                <div class="mini-map-viewport" id="miniMapViewport"></div>
+            </div>
+
+            <!-- SVG Map Container -->
+            <div class="map-container" id="mapContainer">
+                <svg id="learningMap" viewBox="0 0 800 600">
+                    <!-- Territory backgrounds will be added by JavaScript -->
+                    <g id="territories"></g>
+                    <!-- Pathways will be added by JavaScript -->
+                    <g id="pathways"></g>
+                    <!-- Concepts will be added by JavaScript -->
+                    <g id="concepts"></g>
+                </svg>
+            </div>
+
+            <!-- Concept Information Panel -->
+            <div class="concept-panel" id="conceptPanel">
+                <div class="panel-header">
+                    <h3 id="conceptTitle">Select a Concept</h3>
+                    <button id="closePanelBtn" class="btn btn--secondary">×</button>
+                </div>
+                <div class="panel-content">
+                    <div class="concept-details">
+                        <div class="concept-meta">
+                            <span class="difficulty-badge" id="conceptDifficulty">Beginner</span>
+                            <span class="status-badge" id="conceptStatus">Available</span>
+                        </div>
+                        <p id="conceptDescription">Click on a concept to see detailed information and learning resources.</p>
+                        <div class="concept-actions">
+                            <button id="startLearningBtn" class="btn btn--primary">Start Learning</button>
+                            <button id="viewPrereqBtn" class="btn btn--outline">View Prerequisites</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
